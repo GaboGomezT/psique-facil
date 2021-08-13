@@ -1,6 +1,7 @@
 <div metal:use-macro="load: ../shared/_layout.pt">
     <div metal:fill-slot="content" tal:omit-tag="True">
+        <h2>${message}</h2>
         <input id="datePicker" type="date" type="text" class="form-control" />
-        <script src="/static/internal/index.js"></script>
+        <script id="my-script" src="/static/internal/index.js" message="${message}"></script>
     </div>
 </div>
