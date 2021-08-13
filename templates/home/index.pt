@@ -2,6 +2,6 @@
     <div metal:fill-slot="content" tal:omit-tag="True">
         <h2>${message}</h2>
         <input id="datePicker" type="date" type="text" class="form-control" />
-        <script id="my-script" src="/static/internal/index.js" message="${message}"></script>
+        <script id="my-script" src="/static/internal/index.js" message="${message}" available_dates="${available_dates}"></script>
     </div>
 </div>
