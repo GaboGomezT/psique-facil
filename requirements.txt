@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+aiofiles
+
+fastapi_chameleon
+starlette==0.14.2
+python-multipart
+pymongo[srv]
+python-dotenv
+passlib
+gunicorn

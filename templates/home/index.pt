@@ -1,0 +1,6 @@
+<div metal:use-macro="load: ../shared/_layout.pt">
+    <div metal:fill-slot="content" tal:omit-tag="True">
+        <input id="datePicker" type="date" type="text" class="form-control" />
+        <script src="/static/internal/index.js"></script>
+    </div>
+</div>
