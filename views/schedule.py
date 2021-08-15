@@ -29,7 +29,10 @@ async def availability(request: Request):
     friday = form.get('friday')
     saturday = form.get('saturday')
     sunday = form.get('wednesday')
-    print(monday, tuesday, wednesday, thursday, friday, saturday, sunday)
+    # print(monday, tuesday, wednesday, thursday, friday, saturday, sunday)
+    print(form)
+    print(type(form))
+    print(len(form))
 
     return {
         "available_dates": json.dumps({

@@ -1,13 +1,29 @@
+var counter = 0
 monday_adder.addEventListener("click", function() {
     var container = document.getElementById("monday_container");
+    var hour_holder = document.createElement("div");
     var input = document.createElement("input");
     input.type = "time";
     input.min = "08:00"
-    input.max = "24:00"
-    input.name = "monday";
-    container.appendChild(input);
+    input.max = "23:00"
+    input.required = true;
+    input.name = "monday_hour" + counter;
+    hour_holder.appendChild(input);
+    
+    // Append delete action
+    var delete_btn = document.createElement("a")
+    delete_btn.innerHTML = "eliminar"
+    delete_btn.href = "#"
+    delete_btn.addEventListener("click", function() {
+        hour_holder.parentNode.removeChild(hour_holder)
+    })
+    hour_holder.appendChild(delete_btn)
+
     // Append a line break 
-    container.appendChild(document.createElement("br"));
+    break_line = document.createElement("br")
+    hour_holder.appendChild(break_line);
+    container.appendChild(hour_holder)
+    counter++ 
 });
 
 tuesday_adder.addEventListener("click", function() {
@@ -15,11 +31,13 @@ tuesday_adder.addEventListener("click", function() {
     var input = document.createElement("input");
     input.type = "time";
     input.min = "08:00"
-    input.max = "24:00"
-    input.name = "tuesday";
+    input.max = "23:00"
+    input.required = true;
+    input.name = "tuesday_hour" + counter;
     container.appendChild(input);
     // Append a line break 
     container.appendChild(document.createElement("br"));
+    counter++ 
 });
 
 wednesday_adder.addEventListener("click", function() {
@@ -27,11 +45,13 @@ wednesday_adder.addEventListener("click", function() {
     var input = document.createElement("input");
     input.type = "time";
     input.min = "08:00"
-    input.max = "24:00"
-    input.name = "wednesday";
+    input.max = "23:00"
+    input.required = true;
+    input.name = "wednesday_hour" + counter;
     container.appendChild(input);
     // Append a line break 
     container.appendChild(document.createElement("br"));
+    counter++ 
 });
 
 thursday_adder.addEventListener("click", function() {
@@ -39,11 +59,13 @@ thursday_adder.addEventListener("click", function() {
     var input = document.createElement("input");
     input.type = "time";
     input.min = "08:00"
-    input.max = "24:00"
-    input.name = "thursday";
+    input.max = "23:00"
+    input.required = true;
+    input.name = "thursday_hour" + counter;
     container.appendChild(input);
     // Append a line break 
     container.appendChild(document.createElement("br"));
+    counter++ 
 });
 
 friday_adder.addEventListener("click", function() {
@@ -51,31 +73,37 @@ friday_adder.addEventListener("click", function() {
     var input = document.createElement("input");
     input.type = "time";
     input.min = "08:00"
-    input.max = "24:00"
-    input.name = "friday";
+    input.max = "23:00"
+    input.required = true;
+    input.name = "friday_hour" + counter;
     container.appendChild(input);
     // Append a line break 
     container.appendChild(document.createElement("br"));
+    counter++ 
 });
 saturday_adder.addEventListener("click", function() {
     var container = document.getElementById("saturday_container");
     var input = document.createElement("input");
     input.type = "time";
     input.min = "08:00"
-    input.max = "24:00"
-    input.name = "saturday";
+    input.max = "23:00"
+    input.required = true;
+    input.name = "saturday_hour" + counter;
     container.appendChild(input);
     // Append a line break 
     container.appendChild(document.createElement("br"));
+    counter++ 
 });
 sunday_adder.addEventListener("click", function() {
     var container = document.getElementById("sunday_container");
     var input = document.createElement("input");
     input.type = "time";
     input.min = "08:00"
-    input.max = "24:00"
-    input.name = "sunday";
+    input.max = "23:00"
+    input.required = true;
+    input.name = "sunday_hour" + counter;
     container.appendChild(input);
     // Append a line break 
     container.appendChild(document.createElement("br"));
+    counter++ 
 });
