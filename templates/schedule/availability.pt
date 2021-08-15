@@ -1,0 +1,25 @@
+<div metal:use-macro="load: ../shared/_layout.pt">
+    <div metal:fill-slot="content" tal:omit-tag="True">
+        <h2>Porfavor ingresa tus horas disponibles</h2>
+        <h4>Escriba en cada día la hora que empieza cada sesión en formato de 24hrs</h4>
+        <p>Por ejemplo: 10,11,13,15,16</p>
+        <p>Sin espacios y sin coma al final</p>
+        <form method="post">
+            <label for="monday">Lunes: </label>
+            <input type="text" id="monday" name="monday"><br><br>
+            <label for="tuesday">Martes: </label>
+            <input type="text" id="tuesday" name="tuesday"><br><br>
+            <label for="wednesday">Miércoles: </label>
+            <input type="text" id="wednesday" name="wednesday"><br><br>
+            <label for="thursday">Jueves: </label>
+            <input type="text" id="thursday" name="thursday"><br><br>
+            <label for="friday">Viernes: </label>
+            <input type="text" id="friday" name="friday"><br><br>
+            <label for="saturday">Sábado: </label>
+            <input type="text" id="saturday" name="saturday"><br><br>
+            <label for="sunday">Domingo: </label>
+            <input type="text" id="sunday" name="sunday"><br><br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</div>

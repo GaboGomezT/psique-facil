@@ -2,6 +2,7 @@
 Web app that lets clinical psychologists manage their patients.
 
 ## Features
+0. Lets therapists and patients input their availability schedule.
 1. Lets therapists schedule for weekly and 2-weekly sesssions.
 2. Lets patients and therapists schedule one off sessions
 3. Lets therapists share "homework" with their patients
