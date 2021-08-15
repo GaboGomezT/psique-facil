@@ -28,12 +28,61 @@ async def availability(request: Request):
     thursday = form.get('thursday')
     friday = form.get('friday')
     saturday = form.get('saturday')
-    sunday = form.get('wednesday')
-    # print(monday, tuesday, wednesday, thursday, friday, saturday, sunday)
-    print(form)
-    print(type(form))
-    print(len(form))
-
+    sunday = form.get('sunday')
+    monday_hours = []
+    tuesday_hours = []
+    wednesday_hours = []
+    thursday_hours = []
+    friday_hours = []
+    saturday_hours = []
+    sunday_hours = []
+    for hour_id, hour in form.items():
+        if "monday_hour" in hour_id:
+            monday_hours.append(hour)
+        if "tuesday_hour" in hour_id:
+            tuesday_hours.append(hour)
+        if "wednesday_hour" in hour_id:
+            wednesday_hours.append(hour)
+        if "thursday_hour" in hour_id:
+            thursday_hours.append(hour)
+        if "friday_hour" in hour_id:
+            friday_hours.append(hour)
+        if "saturday_hour" in hour_id:
+            saturday_hours.append(hour)
+        if "sunday_hour" in hour_id:
+            sunday_hours.append(hour)
+    
+    schedule = {
+        "monday": {
+            "activated": True if monday else False,
+            "available_hours": monday_hours
+        },
+        "tuesday": {
+            "activated": True if tuesday else False,
+            "available_hours": tuesday_hours
+        },
+        "wednesday": {
+            "activated": True if wednesday else False,
+            "available_hours": wednesday_hours
+        },
+        "thursday": {
+            "activated": True if thursday else False,
+            "available_hours": thursday_hours
+        },
+        "friday": {
+            "activated": True if friday else False,
+            "available_hours": friday_hours
+        },
+        "saturday": {
+            "activated": True if saturday else False,
+            "available_hours": saturday_hours
+        },
+        "sunday": {
+            "activated": True if sunday else False,
+            "available_hours": sunday_hours
+        }
+    }
+    print(schedule)
     return {
         "available_dates": json.dumps({
             "2021-08-14": False,
