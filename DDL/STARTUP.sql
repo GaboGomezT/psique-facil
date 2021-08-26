@@ -44,5 +44,7 @@ CREATE TABLE IF NOT EXISTS event_history (
 	description VARCHAR(50),
 	date TIMESTAMPTZ NOT NULL,
     status VARCHAR(50) NOT NULL,
-	paid BOOLEAN NOT NULL DEFAULT FALSE
+	paid BOOLEAN NOT NULL DEFAULT FALSE,
+    payment_voucher_path VARCHAR(200),
+    created_date TIMESTAMPTZ NOT NULL
 );
