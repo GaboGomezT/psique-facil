@@ -16,6 +16,7 @@ CREATE TABLE IF NOT EXISTS patient (
 	name VARCHAR(50) NOT NULL,
 	middle_name VARCHAR(50),
 	last_name VARCHAR(50),
+    age INTEGER NOT NULL,
     schedule VARCHAR(100) NOT NULL,
 	email VARCHAR(50) NOT NULL,
 	password VARCHAR(50) NOT NULL,
