@@ -16,3 +16,12 @@ Web app that lets clinical psychologists manage their patients.
 ## Future Features
 * Payment as a service for Psychologists so they don't have to manage payments.
 * Transcribe audio to text for session notes
+
+
+# Next tasks
+
+- [ ] Make api that returns list of valid timezones
+- [ ] Create ajax call in frontend to create select input for these layouts
+- [ ] Set default timezone to "local"
+- [ ] Add dynamic change to calendar when select input changes
+  - This will help https://fullcalendar.io/docs/timeZone
