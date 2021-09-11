@@ -20,8 +20,24 @@ Web app that lets clinical psychologists manage their patients.
 
 # Next tasks
 
+### Timezone feature
+
 - [x] Make api that returns list of valid timezones
-- [ ] Create ajax call in frontend to create select input for these layouts
-- [ ] Set default timezone to "local"
-- [ ] Add dynamic change to calendar when select input changes
+- [x] Create ajax call in frontend to create select input for these layouts
+- [x] Set default timezone to "local"
+- [x] Add dynamic change to calendar when select input changes
   - This will help https://fullcalendar.io/docs/timeZone
+
+### Scheduling feature
+
+- [ ] Create CRUD command that saves available hours to database
+- [ ] Create api that gets events -- For available hours, that the user can schedule
+- [ ] Create frontend to select available hour and save choice to DB
+- [ ] Create calendar so therapist can check out their agenda
+- [ ] Create calendar so patient can check out their agenda
+
+
+### Reschedule Feature
+### Notifications Feature
+### Homework Feature
+### Digital Record Feature
