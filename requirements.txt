@@ -9,3 +9,5 @@ pymongo[srv]
 python-dotenv
 passlib
 gunicorn
+sqlmodel
+pytz

@@ -20,7 +20,7 @@ Web app that lets clinical psychologists manage their patients.
 
 # Next tasks
 
-- [ ] Make api that returns list of valid timezones
+- [x] Make api that returns list of valid timezones
 - [ ] Create ajax call in frontend to create select input for these layouts
 - [ ] Set default timezone to "local"
 - [ ] Add dynamic change to calendar when select input changes
