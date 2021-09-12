@@ -21,7 +21,6 @@ engine = create_engine(DATABASE_URL, echo=True)
 def create_test_data():
     therapist = Therapist(
         name="Viridiana",
-        schedule="some json",
         email="viri@gmail.com",
         password="123",
         created_date=str(datetime.now()),
@@ -29,7 +28,6 @@ def create_test_data():
     patient = Patient(
         name="Carmen",
         age=25,
-        schedule="some other json",
         email="carmen@gmail.com",
         password="123",
         created_date=str(datetime.now()),

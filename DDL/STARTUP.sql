@@ -4,7 +4,7 @@ CREATE TABLE IF NOT EXISTS therapist (
 	middle_name VARCHAR(50),
 	last_name VARCHAR(50),
     description VARCHAR(50),
-    schedule VARCHAR(100) NOT NULL,
+    schedule VARCHAR,
 	email VARCHAR(50) NOT NULL,
 	password VARCHAR(50) NOT NULL,
 	created_date TIMESTAMPTZ NOT NULL
@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS patient (
 	middle_name VARCHAR(50),
 	last_name VARCHAR(50),
     age INTEGER NOT NULL,
-    schedule VARCHAR(100) NOT NULL,
+    schedule VARCHAR,
 	email VARCHAR(50) NOT NULL,
 	password VARCHAR(50) NOT NULL,
     therapist_id INTEGER NOT NULL REFERENCES therapist (id),

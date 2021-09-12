@@ -1,3 +1,4 @@
+from command.schedule import update_schedule
 import fastapi
 from fastapi_chameleon import template
 from starlette.requests import Request
@@ -75,13 +76,5 @@ async def availability(request: Request):
             "available_hours": sunday_hours
         }
     }
-    print(schedule)
-    return {
-        "available_dates": json.dumps({
-            "2021-08-14": False,
-            "2021-08-15": False,
-            "2021-08-16": True,
-            "2021-08-17": True
-        })
-        
-    }
+    update_schedule(therapist_id="1", schedule=schedule)
+    return schedule
