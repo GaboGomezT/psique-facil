@@ -2,6 +2,8 @@
     <div metal:fill-slot="content" tal:omit-tag="True">
         <h2>Porfavor ingresa tus horas disponibles</h2>
         <form method="post">
+            Zona Horaria:
+            <select id='time-zone-selector' name='time-zone-selector'></select>
             <label for="monday">Lunes </label>
             <input type="checkbox" id="monday_checkbox" name="monday"><br><br>
             <div id="monday_container"></div>
@@ -32,6 +34,7 @@
             <a href="#" id="sunday_adder">+ añadir horario</a><br><br>
             <input type="submit" value="Submit">
         </form>
-        <script id="my-script" src="/static/internal/availability.js"></script>
+        <script src="/static/internal/availability.js"></script>
+        <script src="/static/internal/schedule_tz.js"></script>
     </div>
 </div>

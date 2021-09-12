@@ -8,15 +8,7 @@ router = fastapi.APIRouter()
 @router.get('/horario-de-disponibilidad')
 @template()
 def availability(request: Request):
-    return {
-        "available_dates": json.dumps({
-            "2021-08-14": False,
-            "2021-08-15": False,
-            "2021-08-16": True,
-            "2021-08-17": True
-        })
-        
-    }
+    return {}
 
 @router.post('/horario-de-disponibilidad')
 @template()
@@ -51,8 +43,9 @@ async def availability(request: Request):
             saturday_hours.append(hour)
         if "sunday_hour" in hour_id:
             sunday_hours.append(hour)
-    
+    timezone = form.get("time-zone-selector")
     schedule = {
+        "timezone": timezone,
         "monday": {
             "activated": True if monday else False,
             "available_hours": monday_hours
