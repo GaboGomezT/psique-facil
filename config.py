@@ -13,4 +13,4 @@ PORT = environ.get("PORT")
 USER = environ.get("USER")
 DATABASE_URL = f"postgresql://{USER}:{PASSWORD}@{HOST}:{PORT}/{DATABASE}"
 
-engine = create_engine(DATABASE_URL, echo=True)
+engine = create_engine(DATABASE_URL)

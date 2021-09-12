@@ -1,4 +1,3 @@
-var counter = 0
 monday_adder.addEventListener("click", function () {
     var container = document.getElementById("monday_container");
     var hour_holder = document.createElement("div");
@@ -7,7 +6,7 @@ monday_adder.addEventListener("click", function () {
     input.min = "08:00"
     input.max = "23:00"
     input.required = true;
-    input.name = "monday_hour" + counter;
+    input.name = "monday_hour";
     hour_holder.appendChild(input);
 
     // Append delete action
@@ -23,7 +22,6 @@ monday_adder.addEventListener("click", function () {
     break_line = document.createElement("br")
     hour_holder.appendChild(break_line);
     container.appendChild(hour_holder)
-    counter++
 });
 
 tuesday_adder.addEventListener("click", function () {
@@ -34,7 +32,7 @@ tuesday_adder.addEventListener("click", function () {
     input.min = "08:00"
     input.max = "23:00"
     input.required = true;
-    input.name = "tuesday_hour" + counter;
+    input.name = "tuesday_hour";
     hour_holder.appendChild(input);
 
     // Append delete action
@@ -50,7 +48,6 @@ tuesday_adder.addEventListener("click", function () {
     break_line = document.createElement("br")
     hour_holder.appendChild(break_line);
     container.appendChild(hour_holder)
-    counter++
 });
 
 wednesday_adder.addEventListener("click", function () {
@@ -61,7 +58,7 @@ wednesday_adder.addEventListener("click", function () {
     input.min = "08:00"
     input.max = "23:00"
     input.required = true;
-    input.name = "wednesday_hour" + counter;
+    input.name = "wednesday_hour";
     hour_holder.appendChild(input);
 
     // Append delete action
@@ -77,7 +74,6 @@ wednesday_adder.addEventListener("click", function () {
     break_line = document.createElement("br")
     hour_holder.appendChild(break_line);
     container.appendChild(hour_holder)
-    counter++
 });
 
 thursday_adder.addEventListener("click", function () {
@@ -88,7 +84,7 @@ thursday_adder.addEventListener("click", function () {
     input.min = "08:00"
     input.max = "23:00"
     input.required = true;
-    input.name = "thursday_hour" + counter;
+    input.name = "thursday_hour";
     hour_holder.appendChild(input);
 
     // Append delete action
@@ -104,7 +100,6 @@ thursday_adder.addEventListener("click", function () {
     break_line = document.createElement("br")
     hour_holder.appendChild(break_line);
     container.appendChild(hour_holder)
-    counter++
 });
 
 friday_adder.addEventListener("click", function () {
@@ -115,7 +110,7 @@ friday_adder.addEventListener("click", function () {
     input.min = "08:00"
     input.max = "23:00"
     input.required = true;
-    input.name = "friday_hour" + counter;
+    input.name = "friday_hour";
     hour_holder.appendChild(input);
 
     // Append delete action
@@ -131,7 +126,6 @@ friday_adder.addEventListener("click", function () {
     break_line = document.createElement("br")
     hour_holder.appendChild(break_line);
     container.appendChild(hour_holder)
-    counter++
 });
 saturday_adder.addEventListener("click", function () {
     var container = document.getElementById("saturday_container");
@@ -141,7 +135,7 @@ saturday_adder.addEventListener("click", function () {
     input.min = "08:00"
     input.max = "23:00"
     input.required = true;
-    input.name = "saturday_hour" + counter;
+    input.name = "saturday_hour";
     hour_holder.appendChild(input);
 
     // Append delete action
@@ -157,7 +151,6 @@ saturday_adder.addEventListener("click", function () {
     break_line = document.createElement("br")
     hour_holder.appendChild(break_line);
     container.appendChild(hour_holder)
-    counter++
 });
 sunday_adder.addEventListener("click", function () {
     var container = document.getElementById("sunday_container");
@@ -167,7 +160,7 @@ sunday_adder.addEventListener("click", function () {
     input.min = "08:00"
     input.max = "23:00"
     input.required = true;
-    input.name = "sunday_hour" + counter;
+    input.name = "sunday_hour";
     hour_holder.appendChild(input);
 
     // Append delete action
@@ -183,5 +176,4 @@ sunday_adder.addEventListener("click", function () {
     break_line = document.createElement("br")
     hour_holder.appendChild(break_line);
     container.appendChild(hour_holder)
-    counter++
 });

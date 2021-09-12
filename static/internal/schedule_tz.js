@@ -1,6 +1,8 @@
 document.addEventListener('DOMContentLoaded', function () {
-    var initialTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
     var timeZoneSelectorEl = document.getElementById('time-zone-selector');
+    var retrieved_timezone = timeZoneSelectorEl.getAttribute("timezone")
+    var initialTimeZone = retrieved_timezone ? retrieved_timezone : Intl.DateTimeFormat().resolvedOptions().timeZone;
+
     var opts = {
         method: 'GET',
         headers: {}

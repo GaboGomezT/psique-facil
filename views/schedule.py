@@ -1,4 +1,4 @@
-from command.schedule import update_schedule
+from command.schedule import get_current_therapist_schedule, update_therapist_schedule
 import fastapi
 from fastapi_chameleon import template
 from starlette.requests import Request
@@ -9,7 +9,41 @@ router = fastapi.APIRouter()
 @router.get('/horario-de-disponibilidad')
 @template()
 def availability(request: Request):
-    return {}
+    # When the user system is mature, use request to get user id
+    schedule = get_current_therapist_schedule(therapist_id="1")
+    if not schedule:
+        schedule = {
+        "timezone": None,
+        "monday": {
+            "activated": False,
+            "available_hours": []
+        },
+        "tuesday": {
+            "activated": False,
+            "available_hours": []
+        },
+        "wednesday": {
+            "activated": False,
+            "available_hours": []
+        },
+        "thursday": {
+            "activated": False,
+            "available_hours": []
+        },
+        "friday": {
+            "activated": False,
+            "available_hours": []
+        },
+        "saturday": {
+            "activated": False,
+            "available_hours": []
+        },
+        "sunday": {
+            "activated": False,
+            "available_hours": []
+        }
+    }
+    return schedule
 
 @router.post('/horario-de-disponibilidad')
 @template()
@@ -76,5 +110,5 @@ async def availability(request: Request):
             "available_hours": sunday_hours
         }
     }
-    update_schedule(therapist_id="1", schedule=schedule)
+    update_therapist_schedule(therapist_id="1", schedule=schedule)
     return schedule
