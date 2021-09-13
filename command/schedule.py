@@ -8,7 +8,7 @@ from config import engine
 
 
 def update_therapist_schedule(therapist_id: str, schedule: dict):
-    logging.info(f"Updating therapist schedule, {therapist_id=}, {schedule=}")
+    print(f"Updating therapist schedule, {therapist_id=}, {schedule=}")
     with Session(engine) as session:
         statement = select(Therapist).where(Therapist.id == therapist_id)
         results = session.exec(statement)
@@ -20,7 +20,7 @@ def update_therapist_schedule(therapist_id: str, schedule: dict):
         session.refresh(therapist)
 
 def get_current_therapist_schedule(therapist_id: str):
-    logging.info(f"Retrieving therapist schedule, {therapist_id=}")
+    print(f"Retrieving therapist schedule, {therapist_id=}")
     with Session(engine) as session:
         statement = select(Therapist).where(Therapist.id == therapist_id)
         results = session.exec(statement)
