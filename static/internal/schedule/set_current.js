@@ -4,11 +4,12 @@ document.addEventListener('DOMContentLoaded', function () {
     days.forEach((day) => {
         console.log(day)
         var dayContainer = document.getElementById(day + '_container');
-        console.log(dayContainer)
         var hours_string = dayContainer.getAttribute("available-hours");
-        console.log(hours_string)
         var availableHours = JSON.parse(hours_string);
         console.log(availableHours)
+        
+        document.getElementById(day + "_checkbox").checked = availableHours.activated
+
 
         availableHours.hours.forEach((hour) => {
             var hour_holder = document.createElement("div");
