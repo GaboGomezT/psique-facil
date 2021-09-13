@@ -31,6 +31,7 @@ Web app that lets clinical psychologists manage their patients.
 ### Scheduling feature
 
 - [x] Create CRUD command that saves available hours to database
+- [ ] When user changes timezone, automatically change hours. Or even trigger this change if saved timezone is different from browser detected timezone. This may not be super critical so it can probably be pushed until after MVP
 - [ ] Create api that gets events -- For available hours, that the user can schedule
 - [ ] Create frontend to select available hour and save choice to DB
 - [ ] Create calendar so therapist can check out their agenda
