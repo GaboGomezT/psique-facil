@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
+    var counter = -1;
     var days = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
     days.forEach((day) => {
         console.log(day)
@@ -18,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
             input.min = "08:00"
             input.max = "23:00"
             input.required = true;
-            input.name = day + "_hour";
+            input.name = day + "_hour" + counter;
             input.value = hour
             hour_holder.appendChild(input);
 
@@ -35,6 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
             break_line = document.createElement("br")
             hour_holder.appendChild(break_line);
             dayContainer.appendChild(hour_holder)
+            counter--;
         })
 
     })
