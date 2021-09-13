@@ -30,7 +30,7 @@ Web app that lets clinical psychologists manage their patients.
 
 ### Scheduling feature
 
-- [ ] Create CRUD command that saves available hours to database
+- [x] Create CRUD command that saves available hours to database
 - [ ] Create api that gets events -- For available hours, that the user can schedule
 - [ ] Create frontend to select available hour and save choice to DB
 - [ ] Create calendar so therapist can check out their agenda
