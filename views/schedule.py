@@ -15,20 +15,24 @@ def availability(request: Request):
         empty_hours = """{\"activated\": false,\"hours\": []}"""
         schedule = {
             "timezone": None,
-            "monday": empty_hours,
-            "tuesday": empty_hours,
-            "wednesday": empty_hours,
-            "thursday": empty_hours,
-            "friday": empty_hours,
-            "saturday": empty_hours,
-            "sunday": empty_hours
+            "week": {
+                "monday": empty_hours,
+                "tuesday": empty_hours,
+                "wednesday": empty_hours,
+                "thursday": empty_hours,
+                "friday": empty_hours,
+                "saturday": empty_hours,
+                "sunday": empty_hours
+            }
         }
     else:
-        days = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
+        days = ["monday", "tuesday", "wednesday",
+                "thursday", "friday", "saturday", "sunday"]
         for d in days:
-            schedule[d] = json.dumps(schedule[d])
+            schedule["week"][d] = json.dumps(schedule["week"][d])
     print(f"{schedule=}")
     return schedule
+
 
 @router.post('/horario-de-disponibilidad')
 @template()
@@ -66,38 +70,41 @@ async def availability(request: Request):
     timezone = form.get("time-zone-selector")
     schedule = {
         "timezone": timezone,
-        "monday": {
-            "activated": True if monday else False,
-            "hours": monday_hours
-        },
-        "tuesday": {
-            "activated": True if tuesday else False,
-            "hours": tuesday_hours
-        },
-        "wednesday": {
-            "activated": True if wednesday else False,
-            "hours": wednesday_hours
-        },
-        "thursday": {
-            "activated": True if thursday else False,
-            "hours": thursday_hours
-        },
-        "friday": {
-            "activated": True if friday else False,
-            "hours": friday_hours
-        },
-        "saturday": {
-            "activated": True if saturday else False,
-            "hours": saturday_hours
-        },
-        "sunday": {
-            "activated": True if sunday else False,
-            "hours": sunday_hours
+        "week": {
+            "monday": {
+                "activated": True if monday else False,
+                "hours": monday_hours
+            },
+            "tuesday": {
+                "activated": True if tuesday else False,
+                "hours": tuesday_hours
+            },
+            "wednesday": {
+                "activated": True if wednesday else False,
+                "hours": wednesday_hours
+            },
+            "thursday": {
+                "activated": True if thursday else False,
+                "hours": thursday_hours
+            },
+            "friday": {
+                "activated": True if friday else False,
+                "hours": friday_hours
+            },
+            "saturday": {
+                "activated": True if saturday else False,
+                "hours": saturday_hours
+            },
+            "sunday": {
+                "activated": True if sunday else False,
+                "hours": sunday_hours
+            }
         }
     }
 
     update_therapist_schedule(therapist_id="1", schedule=schedule)
-    days = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
+    days = ["monday", "tuesday", "wednesday",
+            "thursday", "friday", "saturday", "sunday"]
     for d in days:
-        schedule[d] = json.dumps(schedule[d])
+        schedule["week"][d] = json.dumps(schedule["week"][d])
     return schedule

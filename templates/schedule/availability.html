@@ -6,31 +6,31 @@
             <select id='time-zone-selector' name='time-zone-selector' timezone='${timezone}'></select><br><br>
             <label for="monday">Lunes </label>
             <input type="checkbox" id="monday_checkbox" name="monday"><br><br>
-            <div id="monday_container" available-hours='${monday}'></div>
+            <div id="monday_container" available-hours='${week["monday"]}'></div>
             <a href="#" id="monday_adder">+ añadir horario</a><br><br>
             <label for="tuesday">Martes </label>
             <input type="checkbox" id="tuesday_checkbox" name="tuesday"><br><br>
-            <div id="tuesday_container" available-hours='${tuesday}'></div>
+            <div id="tuesday_container" available-hours='${week["tuesday"]}'></div>
             <a href="#" id="tuesday_adder">+ añadir horario</a><br><br>
             <label for="wednesday">Miércoles </label>
             <input type="checkbox" id="wednesday_checkbox" name="wednesday"><br><br>
-            <div id="wednesday_container" available-hours='${wednesday}'></div>
+            <div id="wednesday_container" available-hours='${week["wednesday"]}'></div>
             <a href="#" id="wednesday_adder">+ añadir horario</a><br><br>
             <label for="thursday">Jueves </label>
             <input type="checkbox" id="thursday_checkbox" name="thursday"><br><br>
-            <div id="thursday_container" available-hours='${thursday}'></div>
+            <div id="thursday_container" available-hours='${week["thursday"]}'></div>
             <a href="#" id="thursday_adder">+ añadir horario</a><br><br>
             <label for="friday">Viernes </label>
             <input type="checkbox" id="friday_checkbox" name="friday"><br><br>
-            <div id="friday_container" available-hours='${friday}'></div>
+            <div id="friday_container" available-hours='${week["friday"]}'></div>
             <a href="#" id="friday_adder">+ añadir horario</a><br><br>
             <label for="saturday">Sábado </label>
             <input type="checkbox" id="saturday_checkbox" name="saturday"><br><br>
-            <div id="saturday_container" available-hours='${saturday}'></div>
+            <div id="saturday_container" available-hours='${week["saturday"]}'></div>
             <a href="#" id="saturday_adder">+ añadir horario</a><br><br>
             <label for="sunday">Domingo </label>
             <input type="checkbox" id="sunday_checkbox" name="sunday"><br><br>
-            <div id="sunday_container" available-hours='${sunday}'></div>
+            <div id="sunday_container" available-hours='${week["sunday"]}'></div>
             <a href="#" id="sunday_adder">+ añadir horario</a><br><br>
             <input type="submit" value="Submit">
         </form>
