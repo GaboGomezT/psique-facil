@@ -8,15 +8,18 @@ DATETIME_FORMAT = "%Y-%m-%dT%H:%M:%S"
 router = fastapi.APIRouter()
 
 
-def generate_events(schedule: dict, start: datetime, end: datetime) -> List[str]:
+def generate_events(schedule: dict, start: datetime, end: datetime, time_zone: str) -> List[str]:
     day = timedelta(hours=24)
     events = []
     week_hours = schedule["week"]
+    if time_zone != schedule["timezone"]:
+        # TODO: Implement timezone conversion
+        return []
     session_duration = timedelta(hours=1)
     while start < end:
         weekday = start.strftime("%A").lower()
         activated = week_hours[weekday]["activated"]
-        hours = week_hours[weekday]["hours"]
+        hours: List[str] = week_hours[weekday]["hours"]
 
         if activated:
             for available_hours in hours:
@@ -30,7 +33,6 @@ def generate_events(schedule: dict, start: datetime, end: datetime) -> List[str]
                     "end": end_event.strftime(DATETIME_FORMAT)
                 }
                 events.append(event)
-                print(event)
         start += day
     
     return events
@@ -39,12 +41,10 @@ def generate_events(schedule: dict, start: datetime, end: datetime) -> List[str]
 @router.get('/events')
 def get_user_open_events(start: str, end: str, user_id: str, timeZone: str, user_type: str):
     # TODO: Use cookies to get user_id to protect this API, or find another way to protect it.
-    print(f"{start=}, {end=}, {user_id=}, {timeZone=}")
     start = datetime.strptime(start, DATETIME_FORMAT)
     end = datetime.strptime(end, DATETIME_FORMAT)
-    print(f"{start=}, {end=}, {user_id=}, {timeZone=}")
     schedule = None
     if user_type == "therapist":
         schedule = get_current_therapist_schedule(user_id)
 
-    return generate_events(schedule, start, end)
+    return generate_events(schedule, start, end, timeZone)
