@@ -32,27 +32,17 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             },
         },
-        events: [
+        eventSources: [
             {
-                title: 'event1',
-                start: '2021-09-11T12:30:00',
-                allDay: false
-            },
-            {
-                title: 'event1.5',
-                start: '2021-09-11T13:30:00',
-                allDay: false
-            },
-            {
-                title: 'event2',
-                start: '2021-09-12T12:30:00',
-                end: '2021-09-12T13:30:00',
-                allDay: false
-            },
-            {
-                title: 'event3',
-                start: '2021-09-14T12:30:00',
-                allDay: false // will make the time show
+                url: '/events',
+                method: 'GET',
+                extraParams: {
+                    user_id: "1",
+                    user_type: "therapist"
+                },
+                failire: function() {
+                    alert('¡Hubo un error consiguendo los eventos!')
+                }
             }
         ]
     });
@@ -81,5 +71,6 @@ document.addEventListener('DOMContentLoaded', function () {
     // when the timezone selector changes, dynamically change the calendar option
     timeZoneSelectorEl.addEventListener('change', function () {
         calendar.setOption('timeZone', this.value);
+        // initialTimeZone = this.value;
     });
 });

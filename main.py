@@ -6,7 +6,7 @@ import uvicorn
 
 
 from views import home, schedule, booking
-from API import timezones
+from API import timezones, events
 
 app = fastapi.FastAPI()
 
@@ -31,6 +31,7 @@ def configure_routes():
     app.include_router(schedule.router)
     app.include_router(booking.router)
     app.include_router(timezones.router)
+    app.include_router(events.router)
 
 
 if __name__ == '__main__':
