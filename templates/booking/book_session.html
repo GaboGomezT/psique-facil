@@ -1,0 +1,25 @@
+<div metal:use-macro="load: ../shared/_layout.html">
+    <div metal:fill-slot="content" tal:omit-tag="True">
+        <h2>Sesión de Terapia con ${therapist_name}</h2>
+        <h2>🕓 1hr</h2>
+        <h2>📅 ${hour_range}, ${readable_date}</h2>
+        <h2>🌎 ${time_zone}</h2>
+        <form method="post">
+            <input type="hidden" name="therapist_id" value="${therapist_id}">
+            <input type="hidden" name="date_str" value="${date_str}">
+            <input type="hidden" name="time_zone" value="${time_zone}">
+            <h2>¿Cuál será la frecuencia de tus sesiones?</h2>
+            <input type="radio" id="zero" name="session_frequency" value="0">
+            <label for="zero">Única Sesión</label><br>
+            <input type="radio" id="one" name="session_frequency" value="1">
+            <label for="one">Semanal</label><br>
+            <input type="radio" id="two" name="session_frequency" value="2">
+            <label for="two">Quincenal</label><br>
+            <input type="radio" id="three" name="session_frequency" value="3">
+            <label for="three">Cada Tres Semanas</label><br>
+            <input type="radio" id="four" name="session_frequency" value="4">
+            <label for="four">Mensual</label><br>
+            <input type="submit" value="Agendar">
+        </form>
+    </div>
+</div>

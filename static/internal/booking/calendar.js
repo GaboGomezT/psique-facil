@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var timeZoneSelectorEl = document.getElementById('time-zone-selector');
     var calendarEl = document.getElementById('calendar');
     var calendar = new FullCalendar.Calendar(calendarEl, {
-        initialView: 'dayGridMonth',
+        initialView: 'timeGridWeek',
         nowIndicator: true,
         timeZone: initialTimeZone,
         locale: 'es',
@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', function () {
         headerToolbar: {
             left: 'prev,next today',
             center: 'title',
-            right: 'dayGridMonth,timeGridWeek'
         },
         buttonText: {
             today: 'hoy',
@@ -40,11 +39,23 @@ document.addEventListener('DOMContentLoaded', function () {
                     user_id: "1",
                     user_type: "therapist"
                 },
-                failire: function() {
+                failure: function () {
                     alert('¡Hubo un error consiguendo los eventos!')
                 }
             }
-        ]
+        ],
+        eventClick: function (info) {
+            therapist_id = 1
+            window.location.href = "/agenda_sesion/therapist/" + therapist_id + "/date_time/" + info.event.startStr + "/time_zone/" + initialTimeZone.replace("/", "*");
+        },
+        eventMouseEnter: function (info) {
+            info.el.style.backgroundColor = "#1e5c96";
+            // #1e5c96
+        },
+        eventMouseLeave: function (info) {
+            info.el.style.backgroundColor = "#3788D8";
+            // #3788D8
+        }
     });
     calendar.render();
 
@@ -71,6 +82,6 @@ document.addEventListener('DOMContentLoaded', function () {
     // when the timezone selector changes, dynamically change the calendar option
     timeZoneSelectorEl.addEventListener('change', function () {
         calendar.setOption('timeZone', this.value);
-        // initialTimeZone = this.value;
+        initialTimeZone = this.value;
     });
 });
