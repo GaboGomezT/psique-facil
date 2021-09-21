@@ -4,7 +4,7 @@
         <h2>🕓 1hr</h2>
         <h2>📅 ${hour_range}, ${readable_date}</h2>
         <h2>🌎 ${time_zone}</h2>
-        <form method="post">
+        <form action="/agenda_sesion/confirmacion" method="post">
             <input type="hidden" name="therapist_id" value="${therapist_id}">
             <input type="hidden" name="date_str" value="${date_str}">
             <input type="hidden" name="time_zone" value="${time_zone}">

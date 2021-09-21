@@ -51,24 +51,15 @@ def book_session(therapist_id: str, date_str: str, time_zone: str, request: Requ
 
 
 @router.post('/agenda_sesion/confirmacion')
-def confirmation(request: Request):
-    time_zone = time_zone.replace("*", "/")
-    try:
-        with Session(engine) as session:
-            statement = select(Therapist).where(Therapist.id == therapist_id)
-            results = session.exec(statement)
-            therapist = results.one()
-            therapist_name = therapist.name
-    except NoResultFound as no_result:
-        # TODO: add log
-        therapist_name = None
-
-    date: datetime = datetime.strptime(date, DATETIME_FORMAT)
-    hour_range = f"{date.strftime('%I:%M %p')} - {(date + timedelta(hours=1)).strftime('%I:%M %p')}"
-    readable_date = date.strftime("%d/%m/%Y")
+async def confirmation(request: Request):
+    form = await request.form()
+    therapist_id = form.get("therapist_id")
+    date_str = form.get("date_str")
+    time_zone = form.get("time_zone")
+    session_frequency = form.get("session_frequency")
     return {
-        "therapist_name": therapist_name,
-        "hour_range": hour_range,
-        "date": readable_date,
-        "time_zone": time_zone
+        "therapist_id": therapist_id,
+        "date_str": date_str,
+        "time_zone": time_zone,
+        "session_frequency": session_frequency
     }
