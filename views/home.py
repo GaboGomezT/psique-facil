@@ -16,5 +16,10 @@ def index(request: Request):
             "2021-08-16": True,
             "2021-08-17": True
         })
-        
+
     }
+
+@router.get('/iniciar_sesion')
+@template()
+def login(request: Request):
+    return {}
