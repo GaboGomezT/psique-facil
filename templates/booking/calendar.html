@@ -1,8 +1,8 @@
 <div metal:use-macro="load: ../shared/_layout.html">
     <div metal:fill-slot="content" tal:omit-tag="True">
         <h2>Agenda una sesión única o recurrente</h2>
-        <select id='time-zone-selector'></select>
         <label>Zona Horaria</label>
+        <select id='time-zone-selector' class="browser-default"></select>
         <div id='calendar'></div>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.9.0/main.min.css">
         <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.9.0/locales-all.min.js"></script>

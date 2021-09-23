@@ -3,11 +3,8 @@
         <h2>Porfavor ingresa tus horas disponibles</h2>
         <form method="post">
 
-            <div class="input-field col s12">
-                <select id='time-zone-selector' name='time-zone-selector'
-                    timezone='${timezone}'></select><br><br>
-                <label>Zona Horaria</label>
-            </div>
+            <label>Zona Horaria</label>
+            <select class="browser-default" id='time-zone-selector' name='time-zone-selector' timezone='${timezone}'></select>
             <label for="monday">Lunes </label>
             <input type="checkbox" id="monday_checkbox" name="monday"><br><br>
             <div id="monday_container" available-hours='${week["monday"]}'></div>
