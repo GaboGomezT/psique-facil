@@ -51,3 +51,5 @@ CREATE TABLE IF NOT EXISTS event_history (
 
 ALTER TABLE therapist 
 ADD COLUMN default_price INTEGER NOT NULL;
+ALTER TABLE therapist ALTER COLUMN password TYPE varchar;
+ALTER TABLE patient ALTER COLUMN password TYPE varchar;
