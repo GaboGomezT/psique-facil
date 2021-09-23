@@ -3,6 +3,8 @@ import fastapi
 from fastapi_chameleon import template
 from starlette.requests import Request
 import json
+
+from infrastructure import cookie_auth
 router = fastapi.APIRouter()
 
 
@@ -10,7 +12,11 @@ router = fastapi.APIRouter()
 @template()
 def availability(request: Request):
     # When the user system is mature, use request to get user id
-    schedule = get_current_therapist_schedule(therapist_id="1")
+    email = cookie_auth.get_email_via_auth_cookie(request)
+    if email:
+        schedule = get_current_therapist_schedule(therapist_email=email)
+    else:
+        schedule = None
     if not schedule:
         empty_hours = """{\"activated\": false,\"hours\": []}"""
         schedule = {
@@ -30,13 +36,16 @@ def availability(request: Request):
                 "thursday", "friday", "saturday", "sunday"]
         for d in days:
             schedule["week"][d] = json.dumps(schedule["week"][d])
-    print(f"{schedule=}")
     return schedule
 
 
 @router.post('/horario-de-disponibilidad')
 @template()
 async def availability(request: Request):
+    email = cookie_auth.get_email_via_auth_cookie(request)
+    if not email:
+        # TODO: redirect to homepage, because user is not logged in
+        pass
     form = await request.form()
     monday = form.get('monday')
     tuesday = form.get('tuesday')
@@ -102,7 +111,7 @@ async def availability(request: Request):
         }
     }
 
-    update_therapist_schedule(therapist_id="1", schedule=schedule)
+    update_therapist_schedule(therapist_email=email, schedule=schedule)
     days = ["monday", "tuesday", "wednesday",
             "thursday", "friday", "saturday", "sunday"]
     for d in days:
