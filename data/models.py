@@ -12,6 +12,7 @@ class Therapist(SQLModel, table=True):
     schedule: str
     email: str
     password: str
+    default_price: int
     created_date: str
 
     patients: List["Patient"] = Relationship(back_populates="therapist")

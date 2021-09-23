@@ -48,3 +48,6 @@ CREATE TABLE IF NOT EXISTS event_history (
     payment_voucher_path VARCHAR(200),
     created_date TIMESTAMPTZ NOT NULL
 );
+
+ALTER TABLE therapist 
+ADD COLUMN default_price INTEGER NOT NULL;
