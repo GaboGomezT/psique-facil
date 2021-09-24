@@ -5,7 +5,7 @@ from data.models import Therapist, Patient
 from config import engine
 from passlib.handlers.sha2_crypt import sha512_crypt as crypto
 
-def register_user(name: str, email:str, password: str, default_price: float, type: str):
+def register_user(name: str, email:str, password: str, type: str,  default_price: float = None,  therapist_id: str = None):
     # first check if the user already exists
     if type == "therapist":
         with Session(engine) as session:
@@ -36,6 +36,7 @@ def register_user(name: str, email:str, password: str, default_price: float, typ
                 name=name,
                 email=email,
                 password=crypto.hash(password, rounds=172_434),
+                therapist_id=therapist_id,
                 created_date=str(datetime.now()),
             )
             session.add(patient)
