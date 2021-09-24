@@ -12,7 +12,7 @@ def update_therapist_schedule(therapist_email: str, schedule: dict):
     with Session(engine) as session:
         statement = select(Therapist).where(Therapist.email == therapist_email)
         results = session.exec(statement)
-        therapist = results.one()
+        therapist = results.first()
 
         therapist.schedule = json.dumps(schedule)
         session.add(therapist)
@@ -24,7 +24,7 @@ def get_current_therapist_schedule(therapist_email: str):
     with Session(engine) as session:
         statement = select(Therapist).where(Therapist.email == therapist_email)
         results = session.exec(statement)
-        therapist = results.one()
+        therapist = results.first()
         if not therapist:
             logging.warning(f"Therapist with {therapist_email=} does not exist")
             return None

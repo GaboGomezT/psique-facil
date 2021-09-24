@@ -1,7 +1,17 @@
+from sqlmodel import Session, select
+
+from data.models import Therapist
+from config import engine
 from datetime import datetime, time, timedelta
 from typing import List
-from command.schedule import get_current_therapist_schedule
+from fastapi_chameleon.engine import response
+from starlette import status
+
+from starlette.requests import Request
 import fastapi
+
+from infrastructure import cookie_auth
+from command.schedule import get_current_therapist_schedule
 
 DATETIME_FORMAT = "%Y-%m-%dT%H:%M:%S"
 
@@ -39,12 +49,23 @@ def generate_events(schedule: dict, start: datetime, end: datetime, time_zone: s
 
 
 @router.get('/events')
-def get_user_open_events(start: str, end: str, user_id: str, timeZone: str, user_type: str):
-    # TODO: Use cookies to get user_id to protect this API, or find another way to protect it.
+def get_user_open_events(start: str, end: str, user_id: str, timeZone: str, user_type: str, request: Request):
+    logged_in = cookie_auth.get_email_via_auth_cookie(request)
+    if not logged_in:
+        response.status_code = status.HTTP_401_UNAUTHORIZED
+        return {}
+
     start = datetime.strptime(start, DATETIME_FORMAT)
     end = datetime.strptime(end, DATETIME_FORMAT)
     schedule = None
     if user_type == "therapist":
-        schedule = get_current_therapist_schedule(user_id)
+        # First get the therapist email through id
+        with Session(engine) as session:
+            statement = select(Therapist).where(Therapist.id == user_id)
+            results = session.exec(statement)
+            therapist = results.first()
+
+
+        schedule = get_current_therapist_schedule(therapist.email)
 
     return generate_events(schedule, start, end, timeZone)
