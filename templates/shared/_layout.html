@@ -9,7 +9,17 @@
 </head>
 
 <body>
-
+    <nav>
+        <div class="nav-wrapper  blue darken-2">
+            <a href="#" class="brand-logo">PsiqueFácil</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="/mi_agenda">Mi Agenda</a></li>
+                <li><a href="/mis_pacientes">Mis Pacientes</a></li>
+                <li><a href="/mi_horario">Mi Horario</a></li>
+                <li><a href="/cerrar_sesion">Cerrar Sesión</a></li>
+            </ul>
+        </div>
+    </nav>
     <div id="main_content" class="container">
         <div metal:define-slot="content" tal:omit-tag="True">No content</div>
     </div>

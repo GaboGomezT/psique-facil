@@ -8,7 +8,7 @@ from infrastructure import cookie_auth
 router = fastapi.APIRouter()
 
 
-@router.get('/horario-de-disponibilidad')
+@router.get('/mi_horario')
 @template()
 def availability(request: Request):
     # When the user system is mature, use request to get user id
@@ -39,7 +39,7 @@ def availability(request: Request):
     return schedule
 
 
-@router.post('/horario-de-disponibilidad')
+@router.post('/mi_horario')
 @template()
 async def availability(request: Request):
     email = cookie_auth.get_email_via_auth_cookie(request)

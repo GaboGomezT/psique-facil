@@ -51,7 +51,7 @@ async def login(request: Request):
 
     # Login user
     response = fastapi.responses.RedirectResponse(
-        url='/horario-de-disponibilidad', status_code=status.HTTP_302_FOUND)
+        url='/mi_horario', status_code=status.HTTP_302_FOUND)
     cookie_auth.set_auth(response, email)
 
     return response
