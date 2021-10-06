@@ -1,27 +1,38 @@
+from datetime import date, datetime
 from infrastructure.auth import login_user, register_user
 import fastapi
 from fastapi_chameleon import template
 from starlette.requests import Request
 from starlette import status
-
 import json
 
+from config import email_db
 from infrastructure import cookie_auth
 router = fastapi.APIRouter()
 
 
 @router.get('/')
 @template()
-def index(request: Request):
+def index():
     return {
-        "message": "hello world",
-        "available_dates": json.dumps({
-            "2021-08-14": False,
-            "2021-08-15": False,
-            "2021-08-16": True,
-            "2021-08-17": True
-        })
+        "emailSent": False
+    }
 
+
+@router.post('/')
+@template()
+async def index(request: Request):
+    form = await request.form()
+    email = form.get("email")
+    new_email = {
+        "email": email,
+        "datetime": datetime.now().strftime("%Y/%m/%d, %H:%M:%S")
+    }
+    print(new_email)
+    email = email_db.put(new_email)
+    print(email)
+    return {
+        "emailSent": True
     }
 
 
