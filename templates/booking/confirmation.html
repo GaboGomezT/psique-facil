@@ -1,0 +1,22 @@
+<div metal:use-macro="load: ../shared/_layout.html">
+    <div metal:fill-slot="content" tal:omit-tag="True">
+        <div class="card" style="margin: 35px 80px;">
+            <div class="card-content light-blue lighten-5">
+                <!-- Use this as the default view for each session whenever someone wants to check their session on your platform. At least for patients.-->
+                <!--  So the URL shoiuld be something like  agenda_sesion/confirmacion/{session_id} -->
+                <span class="card-title">¡Listo!</span>
+                <p>Queda confirmada tu sesión con <b>${therapist_name}</b>, la fecha de <b>${readable_date}</b> en el siguiente horario
+                    <b>${hour_range}</b> con la zona horaria <b>${time_zone}</b>.
+                </p>
+                <br>
+                <p><b>Link de llamada</b> ☎️: ${link}</p>
+                <br>
+                <hr>
+                <p><a href="#">Reagender</a></p>
+            </div>
+            <!-- <div class="card-action white-text">
+                <a href="#">Reagender</a>
+            </div> -->
+        </div>
+    </div>
+</div>
