@@ -8,10 +8,6 @@ document.addEventListener('DOMContentLoaded', function () {
         timeZone: initialTimeZone,
         locale: 'es',
         height: 650,
-        headerToolbar: {
-            left: 'prev,next today',
-            center: 'title',
-        },
         buttonText: {
             today: 'hoy',
             month: 'mes',
@@ -50,10 +46,12 @@ document.addEventListener('DOMContentLoaded', function () {
         },
         eventMouseEnter: function (info) {
             info.el.style.backgroundColor = "#1e5c96";
+            document.body.style.cursor = 'pointer';
             // #1e5c96
         },
         eventMouseLeave: function (info) {
             info.el.style.backgroundColor = "#3788D8";
+            document.body.style.cursor = 'default';
             // #3788D8
         }
     });

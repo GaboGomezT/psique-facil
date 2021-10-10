@@ -1,15 +1,15 @@
 <div metal:use-macro="load: ../shared/_layout.html">
     <div metal:fill-slot="content" tal:omit-tag="True">
-        <h2>Sesión de Terapia con ${therapist_name}</h2>
-        <h2>🕓 1hr</h2>
-        <h2>📅 ${hour_range}, ${readable_date}</h2>
-        <h2>🌎 ${time_zone}</h2>
+        <h4>Sesión de Terapia con ${therapist_name}</h4>
+        <h4>🕓 1hr</h4>
+        <h4>📅 ${hour_range}, ${readable_date}</h4>
+        <h4>🌎 ${time_zone}</h4>
         <form action="/agenda_sesion/confirmacion" method="post">
             <input type="hidden" name="therapist_id" value="${therapist_id}">
             <input type="hidden" name="date_str" value="${date_str}">
             <input type="hidden" name="time_zone" value="${time_zone}">
-
-            <h2>¿Cuál será la frecuencia de tus sesiones?</h2>
+            <hr>
+            <h3>¿Cuál será la frecuencia de tus sesiones?</h3>
 
             <p>
                 <label>
@@ -41,8 +41,8 @@
                     <span>Mensual</span>
                 </label>
             </p>
-
-            <input type="submit" value="Agendar">
+            <button class="btn waves-effect waves-light blue darken-1" type="submit">Agendar</button>
+            <!-- <input type="submit" value="Agendar"> -->
         </form>
     </div>
 </div>

@@ -13,5 +13,4 @@ sqlmodel
 pytz
 psycopg2-binary
 
-passlib
 deta
